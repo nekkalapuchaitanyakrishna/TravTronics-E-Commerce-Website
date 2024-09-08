@@ -1,0 +1,192 @@
+{
+    "users": [
+      { "id": 1, "username": "admin", "password": "admin", "role": "admin" },
+      { "id": 2, "username": "user", "password": "user", "role": "user" }
+    ],
+      "products": [
+        {
+          "id": 1,
+          "name": "Smartphone X",
+          "category": "Electronics",
+          "price": 999
+        },
+        {
+          "id": 2,
+          "name": "Laptop Pro 15",
+          "category": "Electronics",
+          "price": 1599
+        },
+        {
+          "id": 3,
+          "name": "Wireless Headphones",
+          "category": "Accessories",
+          "price": 199
+        },
+        {
+          "id": 4,
+          "name": "4K Monitor",
+          "category": "Electronics",
+          "price": 399
+        },
+        {
+          "id": 5,
+          "name": "Gaming Mouse",
+          "category": "Accessories",
+          "price": 59
+        },
+        {
+          "id": 6,
+          "name": "Mechanical Keyboard",
+          "category": "Accessories",
+          "price": 129
+        },
+        {
+          "id": 7,
+          "name": "Smartwatch 2.0",
+          "category": "Wearables",
+          "price": 299
+        },
+        {
+          "id": 8,
+          "name": "Bluetooth Speaker",
+          "category": "Accessories",
+          "price": 89
+        },
+        {
+          "id": 9,
+          "name": "Tablet 10-inch",
+          "category": "Electronics",
+          "price": 449
+        },
+        {
+          "id": 10,
+          "name": "Portable SSD 1TB",
+          "category": "Storage",
+          "price": 149
+        },
+        {
+          "id": 11,
+          "name": "Digital Camera",
+          "category": "Cameras",
+          "price": 899
+        },
+        {
+          "id": 12,
+          "name": "Drone 4K",
+          "category": "Cameras",
+          "price": 1199
+        },
+        {
+          "id": 13,
+          "name": "Fitness Tracker",
+          "category": "Wearables",
+          "price": 99
+        },
+        {
+          "id": 14,
+          "name": "Smart Home Hub",
+          "category": "Home",
+          "price": 149
+        },
+        {
+          "id": 15,
+          "name": "Electric Toothbrush",
+          "category": "Health",
+          "price": 79
+        },
+        {
+          "id": 16,
+          "name": "Air Purifier",
+          "category": "Home",
+          "price": 229
+        },
+        {
+          "id": 17,
+          "name": "Robot Vacuum",
+          "category": "Home",
+          "price": 499
+        },
+        {
+          "id": 18,
+          "name": "Smart Doorbell",
+          "category": "Home",
+          "price": 199
+        },
+        {
+          "id": 19,
+          "name": "Wireless Charger",
+          "category": "Accessories",
+          "price": 49
+        },
+        {
+          "id": 20,
+          "name": "Action Camera",
+          "category": "Cameras",
+          "price": 399
+        },
+        {
+          "id": 21,
+          "name": "Bluetooth Earbuds",
+          "category": "Accessories",
+          "price": 129
+        },
+        {
+          "id": 22,
+          "name": "Gaming Chair",
+          "category": "Furniture",
+          "price": 299
+        },
+        {
+          "id": 23,
+          "name": "Ergonomic Desk",
+          "category": "Furniture",
+          "price": 499
+        },
+        {
+          "id": 24,
+          "name": "External Hard Drive 2TB",
+          "category": "Storage",
+          "price": 99
+        },
+        {
+          "id": 25,
+          "name": "LED Desk Lamp",
+          "category": "Home",
+          "price": 69
+        },
+        {
+          "id": 26,
+          "name": "Portable Power Bank",
+          "category": "Accessories",
+          "price": 39
+        },
+        {
+          "id": 27,
+          "name": "VR Headset",
+          "category": "Electronics",
+          "price": 399
+        },
+        {
+          "id": 28,
+          "name": "Smart Thermostat",
+          "category": "Home",
+          "price": 249
+        },
+        {
+          "id": 29,
+          "name": "3D Printer",
+          "category": "Electronics",
+          "price": 899
+        },
+        {
+          "id": 30,
+          "name": "Noise Cancelling Headphones",
+          "category": "Accessories",
+          "price": 299
+        }
+      ]
+    ,
+    "cart": [],
+    "orders": []
+  }
+  
