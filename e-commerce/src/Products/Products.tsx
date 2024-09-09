@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Input, Card, Pagination } from 'antd';
+import { Input, Card, Pagination, Alert } from 'antd';
 import { useCart } from '../CartContext';  // Use the CartContext
 import 'antd/dist/reset.css';
 
@@ -11,16 +11,26 @@ const Products: React.FC = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(9);
+  const [error, setError] = useState(''); // Error state for handling fetch errors
 
   const { addToCart } = useCart();  // Add to cart function from context
 
   useEffect(() => {
-    fetch('http://localhost:3000/products')
-      .then((response) => response.json())
-      .then((data) => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch('http://localhost:3000/products');
+        if (!response.ok) {
+          throw new Error('Failed to fetch products');
+        }
+        const data = await response.json();
         setProducts(data);
         setFilteredProducts(data);
-      });
+      } catch (err) {
+        setError('Unable to fetch products. Please try again later.');
+      }
+    };
+
+    fetchProducts();
   }, []);
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -38,6 +48,8 @@ const Products: React.FC = () => {
 
   return (
     <div className="container mx-auto p-4">
+      {error && <Alert message={error} type="error" showIcon className="mb-4" />}
+
       <div className="search-container mb-6 mx-auto max-w-sm md:max-w-md lg:max-w-lg">
         <Input
           placeholder="Search by name"
@@ -58,8 +70,9 @@ const Products: React.FC = () => {
             cover={
               <img
                 alt={product.name}
-                src="https://via.placeholder.com/150"
+                src="https://th.bing.com/th/id/OIP.KwavIwuhhIw20dSqHQA4pAHaHa?rs=1&pid=ImgDetMain"
                 className="h-40 object-cover"
+                loading="lazy"  // Lazy loading added here
               />
             }
             actions={[
