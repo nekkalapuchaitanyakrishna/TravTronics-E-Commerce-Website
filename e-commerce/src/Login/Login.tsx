@@ -57,7 +57,13 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div
+      className="min-h-screen flex items-center justify-center bg-cover bg-center"
+      style={{
+        backgroundImage:
+          "url('https://media.istockphoto.com/id/1428709516/photo/shopping-online-woman-hand-online-shopping-on-laptop-computer-with-virtual-graphic-icon.jpg?s=612x612&w=0&k=20&c=ROAncmFL4lbSQdU4VOhyXu-43ngzfEqHE5ZZAw5FtYk=')",
+      }}
+    >
       <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
         <Title level={2} className="text-center">Login</Title>
         {error && <Alert message={error} type="error" showIcon className="mb-4" />}

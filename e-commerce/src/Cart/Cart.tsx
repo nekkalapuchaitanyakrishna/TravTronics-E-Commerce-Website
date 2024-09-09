@@ -12,23 +12,26 @@ const Cart: React.FC = () => {
     return cart.reduce((total: number, product: any) => total + product.price * product.quantity, 0);
   };
 
-  const columns = [
+  const columns:any = [
     {
       title: 'Product',
       dataIndex: 'name',
       key: 'name',
-      render: (text: string) => <span className="text-lg font-semibold">{text}</span>,
+      responsive: ['xs', 'sm', 'md', 'lg'],
+      render: (text: string) => <span className="text-base font-semibold">{text}</span>,
     },
     {
       title: 'Price',
       dataIndex: 'price',
       key: 'price',
+      responsive: ['sm', 'md', 'lg'], // Hide on mobile
       render: (price: number) => <span>${price}</span>,
     },
     {
       title: 'Quantity',
       dataIndex: 'quantity',
       key: 'quantity',
+      responsive: ['xs', 'sm', 'md', 'lg'], // Always show quantity
       render: (_: any, product: any) => (
         <InputNumber
           min={1}
@@ -42,6 +45,7 @@ const Cart: React.FC = () => {
       title: 'Total',
       dataIndex: 'total',
       key: 'total',
+      responsive: ['sm', 'md', 'lg'], // Hide on mobile
       render: (_: any, product: any) => (
         <span>${product.price * product.quantity}</span>
       ),
@@ -50,6 +54,7 @@ const Cart: React.FC = () => {
       title: 'Action',
       dataIndex: 'action',
       key: 'action',
+      responsive: ['xs', 'sm', 'md', 'lg'],
       render: (_: any, product: any) => (
         <Button danger onClick={() => removeFromCart(product.id)}>
           Remove
@@ -65,15 +70,20 @@ const Cart: React.FC = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Cart Summary</h1>
+      <h1 className="text-2xl font-bold mb-4 text-center">Cart Summary</h1>
 
       {cart.length === 0 ? (
-        <p>Your cart is empty.</p>
+        <p className="text-center">Your cart is empty.</p>
       ) : (
         <>
-          <Table columns={columns} dataSource={dataSource} pagination={false} />
+          <Table
+            columns={columns}
+            dataSource={dataSource}
+            pagination={false}
+            scroll={{ x: 768 }} // Ensure scroll on small screens
+          />
 
-          <div className="mt-4 flex justify-between items-center">
+          <div className="mt-6 flex flex-col space-y-4 max-sm:space-y-4 max-md:flex-row max-md:justify-between items-center">
             <h2 className="text-xl font-semibold">
               Total Price: <span className="text-green-500">${calculateTotalPrice()}</span>
             </h2>

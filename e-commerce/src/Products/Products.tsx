@@ -25,7 +25,7 @@ const Products: React.FC = () => {
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
-    const filtered = products.filter((product:any) =>
+    const filtered = products.filter((product: any) =>
       product.name.toLowerCase().includes(event.target.value.toLowerCase())
     );
     setFilteredProducts(filtered);
@@ -37,35 +37,47 @@ const Products: React.FC = () => {
   const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
 
   return (
-    <div>
-      <div className="search-container" style={{ maxWidth: '400px', margin: '0 auto', marginBottom: '20px' }}>
+    <div className="container mx-auto p-4">
+      <div className="search-container mb-6 mx-auto max-w-sm md:max-w-md lg:max-w-lg">
         <Input
           placeholder="Search by name"
           value={searchTerm}
           onChange={handleSearch}
-          style={{ width: '100%' }}
+          className="w-full"
         />
       </div>
 
-      <div className="grid grid-cols-3 gap-4">
-        {currentProducts.map((product:any) => (
+      {/* Responsive Grid Layout */}
+      <div className="grid grid-cols-3 max-sm:grid-cols-1 max-md:grid-cols-3 max-lg:grid-cols-4 gap-4">
+        {currentProducts.map((product: any) => (
           <Card
             key={product.id}
             hoverable
             bordered
-            style={{ height: '350px', textAlign: 'center' }}
-            cover={<img alt={product.name} src="https://via.placeholder.com/150" style={{ height: '150px', objectFit: 'cover' }} />}
+            className="text-center"
+            cover={
+              <img
+                alt={product.name}
+                src="https://via.placeholder.com/150"
+                className="h-40 object-cover"
+              />
+            }
             actions={[
-              <button onClick={() => addToCart(product)}>Add to Cart</button>
+              <button
+                onClick={() => addToCart(product)}
+                className="hover:text-blue-500"
+              >
+                Add to Cart
+              </button>,
             ]}
           >
             <Meta title={product.name} description={`Category: ${product.category}`} />
-            <p className="mt-2 font-bold">Price: ${product.price}</p>
+            <p className="font-bold mt-2">Price: ${product.price}</p>
           </Card>
         ))}
       </div>
 
-      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+      <div className="flex justify-center mt-8">
         <Pagination
           current={currentPage}
           pageSize={productsPerPage}

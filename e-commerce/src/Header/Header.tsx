@@ -31,19 +31,14 @@ const Header: React.FC = () => {
           className="text-white text-lg font-semibold cursor-pointer"
           onClick={handleTitleClick}
         >
-          E-commerce Dashboard
+          E-commerce
         </div>
 
-        {/* User Info */}
-        <div className="flex items-center space-x-4">
-          {/* User Greeting */}
-          <div className="text-white">
-            Hi {userRole === 'admin' ? 'Admin' : 'User'}
-          </div>
-          {/* User Avatar */}
-          <Avatar icon={<UserOutlined />} />
 
-          {/* Cart Button */}
+        <div className="flex items-center space-x-4">
+         
+          
+
           <Badge count={cart.length} showZero>
             <Button
               type="primary"
